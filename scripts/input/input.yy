@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"input",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input",
+  "parent":{
+    "name":"PONG",
+    "path":"PONG.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
