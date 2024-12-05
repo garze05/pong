@@ -1,29 +1,36 @@
 
+// Detect keys
+input()
 
-// If we are on the menu we dont want to be able to move the players
+// If we are on the menu we dont want to be able to move the players, and should ignore that code
 if global.menu { exit }
     
-if global.local == true {
-	if player == 0
-	{
-		up = global.up1
-		down = global.down1
-	} 
-	else // To play with other player in the same keyboard
-	{
-		up = global.up2
-		down = global.down2
-	}
-}
-else if global.online == false && player == 0
+// How we should handle the player input depending on which gamemode we are
+switch(global.gameMode)
 {
-	up = global.up1 || global.up2
-	down = global.down1 || global.down2
+    case 0: // Local
+        // Assign the corresponding input to each local player
+        upKey = up[player]
+        downKey = down[player]
+    break;
+    case 1: // AI
+        // Player can use either of the keys to move
+        upKey = up[0] || up[1];
+        downKey = down[0] || down[1];
+    break;
+    case 2: // Online
+    
+    // First make sure online is initialized
+    if oControl.onlineInitialized
+    {
+        // Rollback system handles the input
+        var _input = rollback_get_input(); 
+        upKey = _input.up;
+        downKey = _input.down;
+    }
+    break;
 }
-
-dir = down - up //-1 up, 1 down
-
-// Move
+dir = downKey - upKey //-1 up, 1 down
 y += dir * spd
 
 // Control out of bounds paddles
@@ -46,8 +53,7 @@ if dir != 0
 
 // AI CODE
 if player != 1 { exit }
-if global.local == true { exit }
-if global.online == true { exit }
+if global.gameMode != 1 { exit }
 
 // Make the paddle press keystrokes
 if instance_exists(oBall)

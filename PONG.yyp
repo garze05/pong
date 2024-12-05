@@ -19,7 +19,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1100.0.700",
+    "IDEVersion":"2024.1100.0.703",
   },
   "name":"PONG",
   "resources":[
@@ -29,7 +29,6 @@
     {"id":{"name":"oDraw","path":"objects/oDraw/oDraw.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"Game","path":"rooms/Game/Game.yy",},},
-    {"id":{"name":"input","path":"scripts/input/input.yy",},},
     {"id":{"name":"scripts","path":"scripts/scripts/scripts.yy",},},
     {"id":{"name":"sndHit","path":"sounds/sndHit/sndHit.yy",},},
     {"id":{"name":"sndPoint","path":"sounds/sndPoint/sndPoint.yy",},},
