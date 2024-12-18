@@ -1,5 +1,5 @@
 // Send my step variables to oDraw
-with (draw) { optionSelected = other.optionSelected;  }
+with (draw) { optionSelected = other.optionSelected;  resetCount = other.resetCount}
 
 if global.gameMode == 2 && onlineInitialized == false
 {
@@ -16,17 +16,17 @@ var _down = down[0] || down[1]
 // If we want to go back to menu from playing
 if (cancel)
 {
-	switch(global.menu)
-	{
-		case true:
-			// If we havent played a score, dont execute
-			if global.points.Player1 == 0 && global.points.Player2 == 0 { break; }
-			global.menu = false
-		break
-		case false:
-			global.menu = true
-		break
-	}
+    switch(global.menu)
+    {
+        case true:
+            // If we havent played a score, dont execute
+            if global.points.Player1 == 0 && global.points.Player2 == 0 { break; }
+            global.menu = false
+        break
+        case false:
+            global.menu = true
+        break
+    }
 }
 #endregion
 
@@ -62,6 +62,7 @@ if (confirm)
 	audio_play_sound(sndSelect, 0, 0);
 	global.menu = false;
     global.gameMode = optionSelected
+    if resetCount < 4 { resetCount = 0 }
 }
 #endregion
 	

@@ -33,3 +33,7 @@ dir = 0
 // Input
 upKey = 0
 downKey = 0
+
+// Online mode only
+// Is this player paused?
+paused = false;

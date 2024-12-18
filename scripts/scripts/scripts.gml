@@ -76,3 +76,7 @@ function init_online()
     if (!_joined) { rollback_create_game(2, false); } // We only need to create a game for two players 
     return true
 }
+
+function rollback_update_score(p1_score, p2_score) {
+    rollback_write_event(rollback_event_score, [p1_score, p2_score]);
+}
